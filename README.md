@@ -3,5 +3,7 @@
 1. ### Inicialización
 
 	* __config:__ Ayuda a la configuración de las variables de entorno
-		* `git config --global user.name "German"` 	Configura el nombre
-		* `git config --global user.email "test@test.com"` Configura el email
+		* Configurar el nombre:
+		`git config --global user.name "German"` 	
+		*  Configurar el email: 
+		`git config --global user.email "test@test.com"`
