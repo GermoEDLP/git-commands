@@ -29,11 +29,11 @@
 	* Ejemplos:
 	~~~
 	git add prueba.html  	// Empezar a seguir al archivo prueba.html
-	git add css/  			// Empezar a seguir la carpeta css
-	git add css/*.css 		// Empezar a seguir todos os archivos extensión .css dentro de la carpeta css
-	git add .		 		// Seguir todo	
-	git add -A	 			// Seguir todo	
-	git add --all	 		// Seguir todo	
+	git add css/  		// Empezar a seguir la carpeta css
+	git add css/*.css 	// Empezar a seguir todos os archivos extensión .css dentro de la carpeta css
+	git add .		 // Seguir todo	
+	git add -A	 	 // Seguir todo	
+	git add --all	 	// Seguir todo	
 	~~~
 
 3. ### Snapshot
@@ -41,9 +41,9 @@
 
 	* 
 	~~~
-	git commit -m "Mensaje"							// Sacar una foto y colocar un mensaje de que cambios se realzaron desde la foto anterior
+	git commit -m "Mensaje"					// Sacar una foto y colocar un mensaje de que cambios se realzaron desde la foto anterior
 	git commit --amend -m "Mensaje corregido"		// Corregir el mensaje del ultimo commit
-	git commit -am "Mensaje"						// Incluye el <git add .> por defecto
+	git commit -am "Mensaje"				// Incluye el <git add .> por defecto
 	~~~
 	* Si escribimos unicamente el comando `commit`, nos abre el editor VIM. Este editor se comanda utilizando:
 		* __i -->__ Empezar a escribir
@@ -77,9 +77,9 @@
 	* Ejemplos: 
 	~~~
 	git reset prueba.html 		// Deja de seguir al archivo prueba.html
-	git reset css/ 				// Deja de seguir la carpeta css 
-	git reset css/*.css	 		// Deja de seguir todos os archivos extensión .css dentro de la carpeta css	
-	git reset .	 				// deja de seguir todo				
+	git reset css/ 			// Deja de seguir la carpeta css 
+	git reset css/*.css	 	// Deja de seguir todos os archivos extensión .css dentro de la carpeta css	
+	git reset .	 		// deja de seguir todo				
 	~~~
 	* __reset [comandos]:__ Nos ayuda a manejar los tiempos y a recuperar archivos
 	~~~
@@ -95,16 +95,16 @@
 	~~~
 	* Algunos comandos:
 	~~~
-	git log --oneline 							// Ver solo una linea de cada commit
-	git log --decorate							// Visualizar una forma estilizada de mostrar los elementos
-	git log --graph 							// Nos muestra las ramas y los commits con un grafico de canicas
+	git log --oneline 				// Ver solo una linea de cada commit
+	git log --decorate				// Visualizar una forma estilizada de mostrar los elementos
+	git log --graph 				// Nos muestra las ramas y los commits con un grafico de canicas
 	git log	--oneline --decorate --all --graph 	// todo lo anterior junto
 	~~~
 	* __show:__ Nos muestra los cambios realizados en un tag especifico.
 	~~~
-	git show [nombreDelTag]						// Nos muestra el contenido de todo lo que el tag enmarca
-	git show stash								// Nos muestra aun mas información de los stash
-	git show stash@{1}							// Nos muestra aun mas información de un stash en particular
+	git show [nombreDelTag]				// Nos muestra el contenido de todo lo que el tag enmarca
+	git show stash					// Nos muestra aun mas información de los stash
+	git show stash@{1}				// Nos muestra aun mas información de un stash en particular
 	~~~
 	* __diff:__ Nos muestra la diferencia entre 2 archivos o el mismo archivo en 2 momentos distintos
 	~~~
@@ -142,10 +142,10 @@
 	~~~
     * Ejemplos:
 	~~~
-    git tag 										// Ver en la etiqueta que estamos trabajando
-    git tag version1 								// Se crea la etiqueta version1 y se le coloca a la rama que estemos trabajando
-    git tag -d version1 							// Borra la etiqueta versión1
-    git tag -a v1.0.0 -m "Mensaje" 					// Se le da a la etiqueta una version y se le coloca un mensaje explicativo
+    git tag 					// Ver en la etiqueta que estamos trabajando
+    git tag version1 				// Se crea la etiqueta version1 y se le coloca a la rama que estemos trabajando
+    git tag -d version1 				// Borra la etiqueta versión1
+    git tag -a v1.0.0 -m "Mensaje" 			// Se le da a la etiqueta una version y se le coloca un mensaje explicativo
     git tag -a v0.0.1 [commitNumber]  -m "Mensaje 	// Idem que el anterior pero en el commit expecificado
 	~~~
 
@@ -170,30 +170,30 @@
 	~~~
 	Crear
 	=====
-	git stash								// Suspende mis cambios hasta nuevo aviso. Puedo hacerlo tantas veces quiera.
+	git stash						// Suspende mis cambios hasta nuevo aviso. Puedo hacerlo tantas veces quiera.
 	git stash save "Mensaje"				// Crea el stash y le coloca un mensaje
 
 	Utilizar
 	========
-	git stash apply							// Me devuelve lo que esta suspendido en el ultimo stash pero no lo borra.
+	git stash apply						// Me devuelve lo que esta suspendido en el ultimo stash pero no lo borra.
 	git stash apply stash@{1}				// Restaurar un stash en particular
-	git stash pop							// Borra el ultimo stash y me devuelve lo que estaba suspendido.
+	git stash pop						// Borra el ultimo stash y me devuelve lo que estaba suspendido.
 
 	Borrar
 	======
-	git stash drop							// Borra el ultimo stash almacenado
+	git stash drop						// Borra el ultimo stash almacenado
 	git stash drop stash@{1}				// Borra un stash en particular
-	git stash clear							// Borra todos los stash guardados
+	git stash clear						// Borra todos los stash guardados
 
 	Ver
 	===
-	git stash list							// Me permite ver la lista de stashs realizados
+	git stash list						// Me permite ver la lista de stashs realizados
 	git stash list --stat					// Nos muestra mas información sobre lo que tienen los stash
-	git show stash							// Nos muestra aun mas información de los stash
-	git show stash@{1}						// Nos muestra aun mas información de un stash en particular
+	git show stash						// Nos muestra aun mas información de los stash
+	git show stash@{1}					// Nos muestra aun mas información de un stash en particular
 	
 	Avanzados
 	=========
 	git stash save --keep-index				// Guarda todo menos los archivos del stage
-	git stash save --include-untracked		// Guarda todo incluyendo los archivos que git no sigue
+	git stash save --include-untracked			// Guarda todo incluyendo los archivos que git no sigue
 	~~~ 
