@@ -11,49 +11,39 @@
 		~~~
 		git config --global user.email "test@test.com"
 		~~~
+		*  Ver las configuraciones: 
+		~~~
+		git config --global -e
+		~~~
 	* __init:__ Inicializa un repositorio nuevo reinicializa uno existente
 		~~~
 		git init
 		~~~
+	
 
 2. ### Stage
 	Para llevar algo al stage debemos utilizar el comando `add`:
-
-	* Empezar a seguir al archivo prueba.html
 	~~~
-	git add prueba.html 	
+	git add [comandos || archivos]
 	~~~
-	* Empezar a seguir la carpeta css
+	* Ejemplos:
 	~~~
-	git add css/ 			
-	~~~
-	* Empezar a seguir todos os archivos extensión .css dentro de la carpeta css
-	~~~
-	git add css/*.css	
-	~~~
-	* Seguir todo
-	~~~
-	git add .				
-	~~~
-	* Seguir todo
-	~~~
-	git add -A			
-	~~~
-	* Seguir todo
-	~~~
-	git add --all			
+	git add prueba.html  	// Empezar a seguir al archivo prueba.html
+	git add css/  			// Empezar a seguir la carpeta css
+	git add css/*.css 		// Empezar a seguir todos os archivos extensión .css dentro de la carpeta css
+	git add .		 		// Seguir todo	
+	git add -A	 			// Seguir todo	
+	git add --all	 		// Seguir todo	
 	~~~
 
 3. ### Snapshot
 	Para tomar una fotografia de la información en el stage, usaremos el comando `commit`
 
-	* Sacar una foto y colocar un mensaje de que cambios se realzaron desde la foto anterior
+	* 
 	~~~
-	git commit -m "Mensaje"
-	~~~				
-	* Corregir el mensaje del ultimo commit
-	~~~
-	git commit --amend -m "Mensaje corregido"
+	git commit -m "Mensaje"							// Sacar una foto y colocar un mensaje de que cambios se realzaron desde la foto anterior
+	git commit --amend -m "Mensaje corregido"		// Corregir el mensaje del ultimo commit
+	git commit -am "Mensaje"						// Incluye el <git add .> por defecto
 	~~~
 	* Si escribimos unicamente el comando `commit`, nos abre el editor VIM. Este editor se comanda utilizando:
 		* __i -->__ Empezar a escribir
@@ -77,3 +67,133 @@
 	~~~
 	git status -s -b
 	~~~
+
+5. ### Reset
+
+	* __reset:__ Nos ayuda a sacar del stage lo que querramos
+	~~~
+	git reset [archivos]  // Nos ayuda a sacar del stage a los archivos que no querramos alli
+	~~~
+	* Ejemplos: 
+	~~~
+	git reset prueba.html 		// Deja de seguir al archivo prueba.html
+	git reset css/ 				// Deja de seguir la carpeta css 
+	git reset css/*.css	 		// Deja de seguir todos os archivos extensión .css dentro de la carpeta css	
+	git reset .	 				// deja de seguir todo				
+	~~~
+	* __reset [comandos]:__ Nos ayuda a manejar los tiempos y a recuperar archivos
+	~~~
+	git reset --soft [commitNumber]	// Vuelve al commit que se indica pero no recupera archivos, solo veo los cambios
+	git reset --hard [commitNumber] // Vuelve al commit que se indica y recupera archivos.
+	~~~
+
+6. ### Ver información de commits
+
+	* __log:__ Nos permite visualizar los commit realizados. Se muestran empezando en el mas cercano y desciende hacia el mas antiguo. podemos colocarle comandos que nos permita ver mejor la información.
+	~~~
+	git log [comandos]
+	~~~
+	* Algunos comandos:
+	~~~
+	git log --oneline 							// Ver solo una linea de cada commit
+	git log --decorate							// Visualizar una forma estilizada de mostrar los elementos
+	git log --graph 							// Nos muestra las ramas y los commits con un grafico de canicas
+	git log	--oneline --decorate --all --graph 	// todo lo anterior junto
+	~~~
+	* __show:__ Nos muestra los cambios realizados en un tag especifico.
+	~~~
+	git show [nombreDelTag]						// Nos muestra el contenido de todo lo que el tag enmarca
+	git show stash								// Nos muestra aun mas información de los stash
+	git show stash@{1}							// Nos muestra aun mas información de un stash en particular
+	~~~
+	* __diff:__ Nos muestra la diferencia entre 2 archivos o el mismo archivo en 2 momentos distintos
+	~~~
+	git diff prueba.html 						// Diferencia entre el archivo prueba.html ahora y en el commit pasado
+	~~~
+
+7. ### Alias
+
+	* __alias:__ Cambia el uso del comando por el del alias elegido.
+	~~~
+	git config --global alias.[aliasElegido] "[comando]"
+	~~~ 
+	* Ejemplo: 
+	~~~
+	git config --global alias.s "status"  // Ahora el 'git status' puede ponerse como 'git s'
+	~~~ 
+	*  Ver las configuraciones de alias: 
+	~~~
+	git config --global -e
+	~~~
+
+8. ## Unir ramas (MERGE)
+
+	* __merge:__ Nos permite unir ramas distintas del hilo de commits.
+	~~~
+	git merge nuevaRama  // Estando en la rama principal, la uno con la rama nuevaRama
+	~~~
+
+
+9. ### Etiquetas (TAGS)
+    
+	* __tag:__ Son un acceso a un commit especifico en el tiempo. Nos permite trabajar dentro de una versión especifica del código que determinamos nosotros. Esta versión puede verse como una etiqueta que nos permitirá descargar el proyecto en ese punto.
+	~~~
+	git tag [comandos]
+	~~~
+    * Ejemplos:
+	~~~
+    git tag 										// Ver en la etiqueta que estamos trabajando
+    git tag version1 								// Se crea la etiqueta version1 y se le coloca a la rama que estemos trabajando
+    git tag -d version1 							// Borra la etiqueta versión1
+    git tag -a v1.0.0 -m "Mensaje" 					// Se le da a la etiqueta una version y se le coloca un mensaje explicativo
+    git tag -a v0.0.1 [commitNumber]  -m "Mensaje 	// Idem que el anterior pero en el commit expecificado
+	~~~
+
+10. ### Movilidad entre commits y ramas
+    
+	* __checkout:__ Nos permite movernos entre tiempos (commits) y ramas dependiendo de como configuremos los operadores y comandos que le pasemos.
+	~~~
+	git checkout [comandos]
+	~~~
+	* Ejemplos: 
+	~~~
+	git checkout .	 				// Volvemos todos los cambios a la foto (commit) anterior.
+	git checkout -- prueba.html 	// Volvemos los cambios a la foto (commit) anterior del archivo prueba.html solamente			
+	git checkout nuevaRama 			// Me muevo a la rama nuevaRama	
+	git checkout -b nuevaRama 		// Crea la rama nuevaRama y me dirije a ella		
+	~~~
+
+
+11. ### Versiones de emergencia
+    
+	* __stash:__ Nos permite dejar en susupenso todo el __status__ como si no hubiesemos cambia do nada desde el ultimo commit. De emergencia podemos trabajar con ese estado anterior como si los cambios hechos posteriormente no existieran. Cuando termino de trabajar y he realizado el commit correspondiente, puedo devolver lo suspendido y terminar de trabajar. Resumiendo, guarda un *trabajo en progreso*
+	~~~
+	Crear
+	=====
+	git stash								// Suspende mis cambios hasta nuevo aviso. Puedo hacerlo tantas veces quiera.
+	git stash save "Mensaje"				// Crea el stash y le coloca un mensaje
+
+	Utilizar
+	========
+	git stash apply							// Me devuelve lo que esta suspendido en el ultimo stash pero no lo borra.
+	git stash apply stash@{1}				// Restaurar un stash en particular
+	git stash pop							// Borra el ultimo stash y me devuelve lo que estaba suspendido.
+
+	Borrar
+	======
+	git stash drop							// Borra el ultimo stash almacenado
+	git stash drop stash@{1}				// Borra un stash en particular
+	git stash clear							// Borra todos los stash guardados
+
+	Ver
+	===
+	git stash list							// Me permite ver la lista de stashs realizados
+	git stash list --stat					// Nos muestra mas información sobre lo que tienen los stash
+	git show stash							// Nos muestra aun mas información de los stash
+	git show stash@{1}						// Nos muestra aun mas información de un stash en particular
+	
+	Avanzados
+	=========
+	git stash save --keep-index				// Guarda todo menos los archivos del stage
+	git stash save --include-untracked		// Guarda todo incluyendo los archivos que git no sigue
+	~~~ 
