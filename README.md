@@ -31,8 +31,8 @@
 	git add prueba.html  	// Empezar a seguir al archivo prueba.html
 	git add css/  		// Empezar a seguir la carpeta css
 	git add css/*.css 	// Empezar a seguir todos os archivos extensión .css dentro de la carpeta css
-	git add .		 // Seguir todo	
-	git add -A	 	 // Seguir todo	
+	git add .		// Seguir todo	
+	git add -A	 	// Seguir todo	
 	git add --all	 	// Seguir todo	
 	~~~
 
@@ -108,7 +108,7 @@
 	~~~
 	* __diff:__ Nos muestra la diferencia entre 2 archivos o el mismo archivo en 2 momentos distintos
 	~~~
-	git diff prueba.html 						// Diferencia entre el archivo prueba.html ahora y en el commit pasado
+	git diff prueba.html 				// Diferencia entre el archivo prueba.html ahora y en el commit pasado
 	~~~
 
 7. ### Alias
@@ -197,3 +197,15 @@
 	git stash save --keep-index				// Guarda todo menos los archivos del stage
 	git stash save --include-untracked			// Guarda todo incluyendo los archivos que git no sigue
 	~~~ 
+
+	* __rebase:__ Nos permite hacer que una rama parta de otro lugar, incorporando los commits que fueron creados en paralelo. Ejemplo: Despues del commit 1 realizo un branch y empiezo a codificar ahi el commit 2 y 3. Luego vuelvo a la rama principal y codifico el commit 4 y 5. En este momento, la base de la nueva rama (de donde partio y, por lo tanto la informacion que trae de base), es el commit 1 y no tiene ningún conoccimiento del commit 4 y del commit 5. Pero me doy cuenta que estaría bien si para trabajar en la nueva rama tambien incluyo lo que desarrollé en la rama original, por lo que estaría bueno mover la base de la nueva a rama al commit 5. Entonces, desde la rama nueva realizo un comando `rebase` y coloco la base en el commit 5. Quedando este orden: [1,4,5 (de aca nace la nueva rama),nueva-rama(2,3)]
+	~~~
+	git rebase [ramaQueVoyaIncorporar]
+	~~~
+	* __rebase -i:__ Nos permite unir, dividir y eliminar commits de nuestra linea de tiempo.
+	~~~
+	git rebase -i HEAD~4		// El 4 representa la cantidad de archivos con los que quiero trabajar
+	~~~
+	Una vez ejecutado esto, se abre un menu iteractivo en la consola que nos permite trabajar con los commits que seleccionamos.
+
+	![]
