@@ -157,10 +157,10 @@
 	~~~
 	* Ejemplos: 
 	~~~
-	git checkout .	 				// Volvemos todos los cambios a la foto (commit) anterior.
-	git checkout -- prueba.html 	// Volvemos los cambios a la foto (commit) anterior del archivo prueba.html solamente			
-	git checkout nuevaRama 			// Me muevo a la rama nuevaRama	
-	git checkout -b nuevaRama 		// Crea la rama nuevaRama y me dirije a ella		
+	git checkout .	// Volvemos todos los cambios a la foto (commit) anterior.
+	git checkout -- prueba.html	// Volvemos los cambios a la foto (commit) anterior del archivo prueba.html solamente			
+	git checkout nuevaRama	// Me muevo a la rama nuevaRama	
+	git checkout -b nuevaRama	// Crea la rama nuevaRama y me dirije a ella		
 	~~~
 
 
