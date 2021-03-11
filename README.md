@@ -208,4 +208,4 @@
 	~~~
 	Una vez ejecutado esto, se abre un menu iteractivo en la consola que nos permite trabajar con los commits que seleccionamos.
 
-	![]
+	:::image type="content" source="images/Captura de pantalla_2021-03-11_19-58-03.png" alt-text="Menu de rebase"::::::image type="icon" source="images/Captura de pantalla_2021-03-11_19-58-03.png" border="false":::
