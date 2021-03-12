@@ -216,3 +216,25 @@
       - reword: Devolver el commit pero alterando el mensaje del mismo
       - squash: Devolver el commit pero mezclarlo con el commit anterior (en este cso el de arriba al que lo coloquemos squash adelante)
       - drop: Elimina el commit
+
+
+11. ### Manejo remoto
+    
+	* __push:__ Nos permite subir el repositorio a nuestro repositorio remoto y que sea almacenado en la nube.
+	~~~
+	git push nombreDelRemoto nombreDeLaRama		// Tanto el nombre del repositorio y de la rama son opcionales, pero si no se coloca, se utilizará por default 'origin master'.
+	~~~
+	* __pull:__ Nos permite traer todos los cambios realizados en el repositorio remoto y que no estan en nuestro repositorio local. Al terminar, realiza un merge.
+	~~~
+	git pull		// Modo simple.
+	git pull --all	// Trae todas las ramas
+	~~~
+	* __clone:__ Nos permite clonar en nuestra computadora un repositorio de la nube. Se clonan los archivos, las etiquetas, los commits y demases.
+	~~~
+	git clone https://github.com/tu_usario/tu_repositorio.git nombreOpcionalDelLocal		// De esta manera puedo renombrar tambien.
+	~~~
+	* __fetch:__ Realiza la misma tarea que el `pull`, pero sin el merge automatico. Esto nos da una instancia adicional para chequear que lo que traemos del repositorio remoto no choque con algo que hayamos agregado en el local.
+	* __remote:__ Nos ayuda a maneajar las subscripciones remotas con las que trabajamos
+	~~~
+	git remote add nombreDelRemoto https://github.com/tu_usario/tu_repositorio.git		// Por lo general, el remoto principal se llama origin y el de donde traemos un fork, lo llamamos upstream.
+	~~~
