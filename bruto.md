@@ -56,6 +56,8 @@
  14. git branch 						--> Trabajar con ramas
 		git branch nuevaRama		--> Crear rama nuevaRama
 		git branch -d nuevaRama		--> Borrar la nuevRama
+		git branch -D nuevaRama		--> Borrar la nuevRama de manera forzada
+		git branch -a				--> Muestra todas las ramas incluyendo las remotas
 
  15. git merge						--> unir ramas de trabajo
 		git merge nuevaRama		--> Estando en la rama principal, la uno con la rama nuevaRama

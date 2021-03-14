@@ -223,11 +223,12 @@
 	* __push:__ Nos permite subir el repositorio a nuestro repositorio remoto y que sea almacenado en la nube.
 	~~~
 	git push nombreDelRemoto nombreDeLaRama		// Tanto el nombre del repositorio y de la rama son opcionales, pero si no se coloca, se utilizará por default 'origin master'.
+	git push nombreDelRemoto :nombreDeLaRamaRemota	// Borra la rama remota completamente
 	~~~
 	* __pull:__ Nos permite traer todos los cambios realizados en el repositorio remoto y que no estan en nuestro repositorio local. Al terminar, realiza un merge.
 	~~~
 	git pull		// Modo simple.
-	git pull --all	// Trae todas las ramas
+	git pull --all		// Trae todas las ramas
 	~~~
 	* __clone:__ Nos permite clonar en nuestra computadora un repositorio de la nube. Se clonan los archivos, las etiquetas, los commits y demases.
 	~~~
