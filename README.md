@@ -239,3 +239,13 @@
 	~~~
 	git remote add nombreDelRemoto https://github.com/tu_usario/tu_repositorio.git		// Por lo general, el remoto principal se llama origin y el de donde traemos un fork, lo llamamos upstream.
 	~~~
+
+12. ### Issues
+
+    Si estamos arreglando un issue de nuestro proyecto, podemos darlo por finalizado o cerrado, colocando algunas palabras clave en el comentario de nuestro commit al subir la corrección.
+
+    * __fixes \[#issue\]:__ De esta manera, indicamos que el commit que se esta subiendo es la corrección al problema detectado en el issue dterminado por el id (Ej: #5).
+    ~~~
+    git commit -m "Arreglando el problema fixes #15" // El commit contiene el arreglo del issue #15. Ahora el issue es anexado a este commit y se cierra en la plataforma.
+    ~~~
+    * __closes y resolves \[#issue\]:__ Funciona de la misma manera qie ***fixes***.
